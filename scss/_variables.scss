@@ -1,0 +1,10 @@
+@mixin botones {
+    color: $colorPrincipal;
+    border: 1px solid $colorPrincipal;
+    border-radius: 5px;
+    padding:3px;
+    transition: 0.5s ease-in;
+}
+$colorPrincipal:rgb(1,84,255);
+$colorPrincipalOscuro:rgb(0, 56, 168);
+$colorFondo:rgb(178, 201, 247);

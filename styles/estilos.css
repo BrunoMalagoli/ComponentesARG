@@ -1,0 +1,112 @@
+html {
+  padding: 0px;
+  margin: 0px;
+  font-size: 20px;
+  font-family: 'Chakra Petch', sans-serif; }
+
+/*Nav*/
+#nav {
+  display: flex; }
+  #nav .nav__logo--contenedor {
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    align-items: center; }
+  #nav .nav__container {
+    display: flex;
+    width: 100%;
+    justify-items: flex-end;
+    justify-content: space-around;
+    align-items: center; }
+  #nav .nav__items {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    align-items: center; }
+  #nav .nav__items:last-child {
+    color: #0154ff;
+    border: 1px solid #0154ff;
+    border-radius: 5px;
+    padding: 3px;
+    transition: 0.5s ease-in; }
+  #nav .nav__items:last-child:hover {
+    background-color: #b2c9f7;
+    color: white; }
+  #nav #carrito__img {
+    height: 2rem;
+    width: 2rem; }
+  #nav .nav__items a {
+    color: #0154ff;
+    text-decoration: none;
+    transition: 1s ease-out; }
+  #nav .nav__items a:hover {
+    color: #0038a8; }
+  #nav #logo {
+    height: 80%;
+    transition: 1s ease-in-out;
+    position: relative; }
+  #nav #logo:hover {
+    transform: scale(1.1); }
+
+/*Layout productos*/
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 2%;
+  grid-auto-flow: row;
+  grid-template-areas: "aside section section" "aside section section" "aside section section";
+  width: 90%;
+  height: 100%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 5%; }
+  .container .aside {
+    grid-area: aside;
+    border: 1px solid black;
+    width: 80%;
+    height: 70%; }
+  .container #container__productos {
+    grid-area: section;
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center; }
+  .container .productos {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    font-size: 0.8rem;
+    width: 50%; }
+  .container .titulo__producto {
+    font-size: 1rem;
+    text-align: center; }
+  .container .producto--texto {
+    text-align: center;
+    font-size: 0.8rem; }
+  .container #carritoCompra {
+    height: 100%;
+    width: 100%; }
+
+.separador {
+  position: relative;
+  background: #b2c9f7;
+  height: 74vh; }
+
+.separador::before {
+  position: absolute;
+  content: '';
+  left: 50%;
+  z-index: 10;
+  width: 111px;
+  height: 80px;
+  border-radius: 50%;
+  background: inherit;
+  transform: translateX(-50%) translateY(50%);
+  bottom: 0px; }
+
+/*FOOTER*/
+#footer {
+  height: 20%;
+  width: 100%; }
