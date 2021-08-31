@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,13 +21,26 @@
 <!--Body-->
 <div class="container">
     <div class="aside">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur, esse accusantium. Sed eaque excepturi at nisi alias? Quia repudiandae excepturi ipsum esse deserunt sit dolorem. Necessitatibus harum quia temporibus vero!
+        
+        <h4 class="aside__subtitulos">Filtros de busqueda</h4>
+        <button id="agregarFiltros">Agregar filtros de busqueda</button><!--Funciona-->
+        <!--Sin funcion todavia-->
+        <select id="aside__seleccion" class="oculto">
+            <option selected>Ordenar</option>
+            <option value="menor">Por menor precio</option>
+            <option value="mayor">Por mayor precio</option>
+            <option value="alfabetico">Por orden alfabetico</option>
+        </select>
     </div>
     <div id="container__productos">
+        <!--PRODUCTOS-->
     </div>
   </div>
 <!--FOOTER-->
 <footer id="footer"></footer>   
-<script src="../js/productos.js"></script>    
+<!--Scripts-->
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="crossorigin="anonymous"></script>
+  <script src="../js/productos.js"></script>    
 </body>
 </html>

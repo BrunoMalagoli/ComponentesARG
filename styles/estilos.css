@@ -31,7 +31,8 @@ html {
     transition: 0.5s ease-in; }
   #nav .nav__items:last-child:hover {
     background-color: #b2c9f7;
-    color: white; }
+    color: white;
+    cursor: pointer; }
   #nav #carrito__img {
     height: 2rem;
     width: 2rem; }
@@ -65,7 +66,32 @@ html {
     grid-area: aside;
     border: 1px solid black;
     width: 80%;
-    height: 70%; }
+    height: 40%; }
+    .container .aside .aside__subtitulos {
+      color: #0154ff;
+      font-size: 0.8rem;
+      text-align: center; }
+    .container .aside #aside__seleccion {
+      color: #0154ff;
+      border: 1px solid #0154ff;
+      border-radius: 5px;
+      padding: 3px;
+      transition: 0.5s ease-in;
+      position: relative;
+      left: 3.9rem; }
+    .container .aside #agregarFiltros {
+      color: #0154ff;
+      border: 1px solid #0154ff;
+      border-radius: 5px;
+      padding: 3px;
+      transition: 0.5s ease-in;
+      position: relative;
+      left: 3.9rem;
+      background-color: white; }
+    .container .aside .oculto {
+      display: none; }
+    .container .aside .visible {
+      display: inline; }
   .container #container__productos {
     grid-area: section;
     border: 1px solid black;
@@ -78,16 +104,35 @@ html {
     flex-wrap: wrap;
     flex-direction: column;
     font-size: 0.8rem;
-    width: 50%; }
+    width: 50%;
+    align-items: center; }
   .container .titulo__producto {
     font-size: 1rem;
     text-align: center; }
   .container .producto--texto {
     text-align: center;
     font-size: 0.8rem; }
+  .container .productos__imagenes {
+    height: auto;
+    width: 80%; }
   .container #carritoCompra {
     height: 100%;
     width: 100%; }
+  .container .carrito__boton {
+    cursor: pointer;
+    color: #0154ff;
+    border: 1px solid #0154ff;
+    border-radius: 5px;
+    padding: 3px;
+    transition: 0.5s ease-in;
+    text-decoration: none;
+    background-color: white;
+    padding: 5px;
+    font-size: 0.8rem;
+    transition: 0.4s ease-in-out; }
+  .container .carrito__boton:hover {
+    background-color: #b2c9f7;
+    color: white; }
 
 .separador {
   position: relative;
