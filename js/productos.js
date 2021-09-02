@@ -9,16 +9,25 @@ const productos=[
 ]
 //Procesando Productos
 let seccion=document.getElementById("container__productos");
+const renderizarProductos=()=>{
 for (const producto of productos){
      let seccionProductos=document.createElement("div");
      seccionProductos.setAttribute("class","productos")
      seccionProductos.innerHTML=`<img src="${producto.imagen}" class="productos__imagenes" alt="productos computacion">
                                  <h3 class="titulo__producto">${producto.marca} ${producto.modelo}</h3>
                                  <p class="producto--texto">Precio $:${producto.precio}</p>
-                                 <button class="carrito__boton" type="button">Agregar al carrito</button>`;
+                                 <button class="carrito__boton" id="boton${producto.id}" type="button">Agregar al carrito</button>`;
      seccion.appendChild(seccionProductos);
- }
-
+     let boton=document.getElementById(`boton${producto.id}`)
+     boton.addEventListener("click",agregarCarrito)
+     function agregarCarrito(){
+         const arrayCarrito=[];
+         arrayCarrito.push(producto.id,producto.marca+" "+producto.modelo);
+         localStorage.setItem("Carrito del cliente",arrayCarrito);
+     }
+    
+ }}
+renderizarProductos();
  //
  function filtroDesplegable(nombre,visibilidad){
     let desplegable=document.getElementById(nombre);
