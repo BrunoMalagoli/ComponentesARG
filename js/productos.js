@@ -9,6 +9,7 @@ const productos=[
 ]
 //Procesando Productos
 let seccion=document.getElementById("container__productos");
+let contador=document.getElementById("contador");
 const renderizarProductos=()=>{
 for (const producto of productos){
      let seccionProductos=document.createElement("div");
@@ -19,16 +20,27 @@ for (const producto of productos){
                                  <button class="carrito__boton" id="boton${producto.id}" type="button">Agregar al carrito</button>`;
      seccion.appendChild(seccionProductos);
      let boton=document.getElementById(`boton${producto.id}`)
-     boton.addEventListener("click",agregarCarrito)
+     boton.addEventListener("click",agregarCarrito);
+     let cantidadProductos=localStorage.getItem("Cantidad Productos")
      function agregarCarrito(){
-         const arrayCarrito=[];
-         arrayCarrito.push(producto.id,producto.marca+" "+producto.modelo);
-         localStorage.setItem("Carrito del cliente",arrayCarrito);
-     }
-    
+        const arrayCarrito=localStorage.getItem("Carrito del cliente") ? JSON.parse(localStorage.getItem("Carrito del cliente")) : [];
+        let productoSeleccionado= productos.find(e=> e.id == producto.id);
+        arrayCarrito.push(productoSeleccionado);
+        console.log(arrayCarrito);
+        localStorage.setItem("Carrito del cliente",JSON.stringify(arrayCarrito));
+        let cantidadProductos=arrayCarrito.length;
+        localStorage.setItem("Cantidad Productos",cantidadProductos)
+    }
+    if(cantidadProductos>0){
+        let contador=document.getElementById("contador");
+        contador.innerText=`(${cantidadProductos})`
+        }else{
+            contador.innerText=`(0)`
+        }
  }}
+ //Llamada a la funcion
 renderizarProductos();
- //
+//Ocultar y mostar filtros de busqueda
  function filtroDesplegable(nombre,visibilidad){
     let desplegable=document.getElementById(nombre);
     if (visibilidad===false){

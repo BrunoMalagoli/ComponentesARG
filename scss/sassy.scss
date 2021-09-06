@@ -43,6 +43,11 @@ html{
         height: 2rem;
         width: 2rem;
     }
+    #contador{
+      background-color: red;
+      border: 1px white;
+      border-radius: 100px;
+    }
     //Color de los links
     .nav__items a{
         color: $colorPrincipal;
