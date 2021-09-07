@@ -32,7 +32,7 @@ html{
     }
     //Carrito
     .nav__items:last-child{
-        @include botones
+        @include botones;
     }
     .nav__items:last-child:hover{
         background-color: $colorFondo;
@@ -44,9 +44,12 @@ html{
         width: 2rem;
     }
     #contador{
-      background-color: red;
+      background-color: $colorPrincipalOscuro;
+      color: white;
       border: 1px white;
-      border-radius: 100px;
+      border-radius: 9999px;
+      margin-left: 2px;
+      padding: 3px;
     }
     //Color de los links
     .nav__items a{

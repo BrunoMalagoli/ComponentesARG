@@ -1,4 +1,9 @@
-
+//Cuenta los items que hay guardados en el carrito
+function contador(){
+    const contador=document.getElementById("contador");
+    contador.innerHTML=localStorage.getItem("Carrito del cliente") ? (JSON.parse(localStorage.getItem("Carrito del cliente"))).length : "0";
+}
+contador();
 //Array de productos
 const productos=[
     {id:1, producto:"Placa de video",marca:"NVIDIA",modelo:"RTX 3090",precio:300000,imagen:"../images/RTX3090.jpg"},
@@ -9,7 +14,6 @@ const productos=[
 ]
 //Procesando Productos
 let seccion=document.getElementById("container__productos");
-let contador=document.getElementById("contador");
 const renderizarProductos=()=>{
 for (const producto of productos){
      let seccionProductos=document.createElement("div");
@@ -21,22 +25,14 @@ for (const producto of productos){
      seccion.appendChild(seccionProductos);
      let boton=document.getElementById(`boton${producto.id}`)
      boton.addEventListener("click",agregarCarrito);
-     let cantidadProductos=localStorage.getItem("Cantidad Productos")
      function agregarCarrito(){
         const arrayCarrito=localStorage.getItem("Carrito del cliente") ? JSON.parse(localStorage.getItem("Carrito del cliente")) : [];
         let productoSeleccionado= productos.find(e=> e.id == producto.id);
         arrayCarrito.push(productoSeleccionado);
         console.log(arrayCarrito);
         localStorage.setItem("Carrito del cliente",JSON.stringify(arrayCarrito));
-        let cantidadProductos=arrayCarrito.length;
-        localStorage.setItem("Cantidad Productos",cantidadProductos)
+        contador();
     }
-    if(cantidadProductos>0){
-        let contador=document.getElementById("contador");
-        contador.innerText=`(${cantidadProductos})`
-        }else{
-            contador.innerText=`(0)`
-        }
  }}
  //Llamada a la funcion
 renderizarProductos();

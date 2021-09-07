@@ -36,6 +36,13 @@ html {
   #nav #carrito__img {
     height: 2rem;
     width: 2rem; }
+  #nav #contador {
+    background-color: #0038a8;
+    color: white;
+    border: 1px white;
+    border-radius: 9999px;
+    margin-left: 2px;
+    padding: 3px; }
   #nav .nav__items a {
     color: #0154ff;
     text-decoration: none;
