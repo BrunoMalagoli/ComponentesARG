@@ -22,7 +22,6 @@ html{
         justify-items: flex-end;
         justify-content: space-around;
         align-items: center;
-        
     }
     .nav__items{
         display: flex;
@@ -33,6 +32,24 @@ html{
     //Carrito
     .nav__items:last-child{
         @include botones;
+        #container__carrito{
+          display: flex;
+          align-items: center;
+          #carrito--texto{
+            margin: 0px;
+          }
+          #tarjeta__items{
+            display: none;
+            flex-direction: column;
+            flex-wrap: wrap;
+            .card--carrito{
+              flex-wrap: wrap;
+              .card__imagen{
+                height: 70%;
+              }
+            }
+          }
+        }
     }
     .nav__items:last-child:hover{
         background-color: $colorFondo;

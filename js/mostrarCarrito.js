@@ -1,3 +1,9 @@
+//Cuenta los items que hay guardados en el carrito
+function contador(){
+    const contador=document.getElementById("contador");
+    contador.innerHTML=localStorage.getItem("Carrito del cliente") ? (JSON.parse(localStorage.getItem("Carrito del cliente"))).length : "0";
+}
+contador();
 //Checkea si hay algun item en el carrito
 const revisarCarrito=()=>{
     let carrito=[];
@@ -10,11 +16,12 @@ const revisarCarrito=()=>{
 let carritoCapturar=revisarCarrito();
 let eliminar=document.getElementsByClassName("eliminarBotonContainer");
 $(".eliminarBotonContainer").append(`<button class='eliminarBoton' id='botonVaciar'>Vaciar carrito</button>`);
-//
 const renderizarCarrito=()=>{
     for(producto of carritoCapturar){
        $("#container__carrito").append(
-        `<div class='card--carrito'>
+        `
+        <section id='tarjeta__items'>
+        <div class='card--carrito'>
            <img src='${producto.imagen}' class="card__imagen">
            <div class="card__body">
                 <div class="card__title">
@@ -25,7 +32,9 @@ const renderizarCarrito=()=>{
                     </div>  
             <button href="#" class="eliminarBotonContainer" onclick="quitar('${producto.id}')">Quitar</button>                 
             </div>
-        </div>`) 
+        </div>
+        </section>
+        `) 
     }
 }
 renderizarCarrito();
@@ -38,3 +47,9 @@ localStorage.setItem("Carrito del cliente",JSON.stringify(carritoCapturar));
 location.reload();
 }
 $("#botonVaciar").click(()=>{localStorage.clear();location.reload()});
+
+//Boton carrito
+
+$("#container__carrito").click(function mostrarSeleccion(){
+    $("#tarjeta__items").slideToggle();
+})

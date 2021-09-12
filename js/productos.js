@@ -1,9 +1,4 @@
-//Cuenta los items que hay guardados en el carrito
-function contador(){
-    const contador=document.getElementById("contador");
-    contador.innerHTML=localStorage.getItem("Carrito del cliente") ? (JSON.parse(localStorage.getItem("Carrito del cliente"))).length : "0";
-}
-contador();
+
 //Array de productos
 const productos=[
     {id:1, producto:"Placa de video",marca:"NVIDIA",modelo:"RTX 3090",precio:300000,imagen:"../images/RTX3090.jpg"},

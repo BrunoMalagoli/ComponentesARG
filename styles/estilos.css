@@ -29,6 +29,19 @@ html {
     border-radius: 5px;
     padding: 3px;
     transition: 0.5s ease-in; }
+    #nav .nav__items:last-child #container__carrito {
+      display: flex;
+      align-items: center; }
+      #nav .nav__items:last-child #container__carrito #carrito--texto {
+        margin: 0px; }
+      #nav .nav__items:last-child #container__carrito #tarjeta__items {
+        display: none;
+        flex-direction: column;
+        flex-wrap: wrap; }
+        #nav .nav__items:last-child #container__carrito #tarjeta__items .card--carrito {
+          flex-wrap: wrap; }
+          #nav .nav__items:last-child #container__carrito #tarjeta__items .card--carrito .card__imagen {
+            height: 70%; }
   #nav .nav__items:last-child:hover {
     background-color: #b2c9f7;
     color: white;
