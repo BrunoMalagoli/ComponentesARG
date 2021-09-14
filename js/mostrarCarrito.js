@@ -12,13 +12,12 @@ const revisarCarrito=()=>{
     }
     return carrito;
 }
-//Boton vaciar
-let carritoCapturar=revisarCarrito();
-let eliminar=document.getElementsByClassName("eliminarBotonContainer");
-$(".eliminarBotonContainer").append(`<button class='eliminarBoton' id='botonVaciar'>Vaciar carrito</button>`);
+//Funcion para renderizar el interior del carrito
 const renderizarCarrito=()=>{
+    let carritoCapturar=revisarCarrito();
+    $("#containerCarrito").html("");
     for(producto of carritoCapturar){
-       $("#container__carrito").append(
+       $("#containerCarrito").append(
         `
         <section id='tarjeta__items'>
         <div class='card--carrito'>
@@ -28,28 +27,31 @@ const renderizarCarrito=()=>{
                     <h3>'${producto.marca} ${producto.modelo}'</h3>
                 </div>
                     <div class="card__precio">
-                <h3>${producto.precio}</h3>
+                <h3>$ ${producto.precio}</h3>
                     </div>  
             <button href="#" class="eliminarBotonContainer" onclick="quitar('${producto.id}')">Quitar</button>                 
             </div>
         </div>
         </section>
-        `) 
+        `)
     }
 }
-renderizarCarrito();
+//Boton vaciar
+$("#containerCarrito").append(`<button class='eliminarBoton' id='botonVaciar'>Vaciar carrito</button>`);
+$("#botonVaciar").click(()=>{localStorage.clear();location.reload()});
 //Funcion quitar 
 function quitar(id){
+let carritoCapturar=revisarCarrito();
 let productoQuitar=carritoCapturar.find(producto=>producto.id==id);
 let indiceProducto=carritoCapturar.indexOf(productoQuitar);
 carritoCapturar.splice(indiceProducto,1);
 localStorage.setItem("Carrito del cliente",JSON.stringify(carritoCapturar));
-location.reload();
+$("#tarjeta__items").fadeOut();
+$("#containerCarrito").fadeOut();
+contador();
 }
-$("#botonVaciar").click(()=>{localStorage.clear();location.reload()});
-
 //Boton carrito
-
-$("#container__carrito").click(function mostrarSeleccion(){
-    $("#tarjeta__items").slideToggle();
-})
+$("#container__carrito").click(function mostrarCarrito(){
+    renderizarCarrito();
+    $("#containerCarrito").slideToggle();
+});

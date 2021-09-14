@@ -38,17 +38,6 @@ html{
           #carrito--texto{
             margin: 0px;
           }
-          #tarjeta__items{
-            display: none;
-            flex-direction: column;
-            flex-wrap: wrap;
-            .card--carrito{
-              flex-wrap: wrap;
-              .card__imagen{
-                height: 70%;
-              }
-            }
-          }
         }
     }
     .nav__items:last-child:hover{
@@ -86,6 +75,24 @@ html{
     #logo:hover{
         transform: scale(1.1);
     }
+}
+#containerCarrito{
+  display: none;
+  position: absolute;
+  left: 70%;
+  top: 15.5%;
+  background-color: white;
+  border: 2px solid $colorPrincipalOscuro;
+  #textoCarritoVacio{
+    height: 100%;
+    display: none;
+  }
+  #botonVaciar{
+    display: none;
+  }
+  #tarjeta__items{
+    border-bottom: 2px solid rgb(175, 169, 169);
+  }
 }
 /*Layout productos*/
 .container {

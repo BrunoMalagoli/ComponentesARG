@@ -34,14 +34,6 @@ html {
       align-items: center; }
       #nav .nav__items:last-child #container__carrito #carrito--texto {
         margin: 0px; }
-      #nav .nav__items:last-child #container__carrito #tarjeta__items {
-        display: none;
-        flex-direction: column;
-        flex-wrap: wrap; }
-        #nav .nav__items:last-child #container__carrito #tarjeta__items .card--carrito {
-          flex-wrap: wrap; }
-          #nav .nav__items:last-child #container__carrito #tarjeta__items .card--carrito .card__imagen {
-            height: 70%; }
   #nav .nav__items:last-child:hover {
     background-color: #b2c9f7;
     color: white;
@@ -68,6 +60,21 @@ html {
     position: relative; }
   #nav #logo:hover {
     transform: scale(1.1); }
+
+#containerCarrito {
+  display: none;
+  position: absolute;
+  left: 70%;
+  top: 15.5%;
+  background-color: white;
+  border: 2px solid #0038a8; }
+  #containerCarrito #textoCarritoVacio {
+    height: 100%;
+    display: none; }
+  #containerCarrito #botonVaciar {
+    display: none; }
+  #containerCarrito #tarjeta__items {
+    border-bottom: 2px solid #afa9a9; }
 
 /*Layout productos*/
 .container {
