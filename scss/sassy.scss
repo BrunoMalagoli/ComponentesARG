@@ -83,15 +83,93 @@ html{
   top: 15.5%;
   background-color: white;
   border: 2px solid $colorPrincipalOscuro;
-  #textoCarritoVacio{
-    height: 100%;
-    display: none;
+  width: 25%;
+  .textoCarritoVacio{
+    color: white;
+    background-color: $colorPrincipalOscuro;
+    border: 1px solid white;
+    border-radius: 5px;
+    margin-left: 2%;
+    margin-right: 2%;
+    text-align: center;
+    padding-top: 1%;
+    padding-bottom: 1%;
   }
+  #containerBotonesCarrito{
+    display: flex;
+    justify-content: space-evenly;
   #botonVaciar{
-    display: none;
+    background-color: red;
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding:2%;
+    transition: 0.5s ease-in;
+    margin-bottom: 1%;
+    margin-top: 1%;
   }
+  #botonVaciar:hover{
+    background-color: rgb(145, 23, 23)
+  }
+  #continuarBoton{
+  @include botones;
+  padding: 2%;
+  background-color: white;
+  margin-bottom: 1%;
+  margin-top: 1%;
+  #textoContinuar{
+    text-decoration: none;
+    color: $colorPrincipal;
+    transition: 0.5s ease-in ;
+  }
+  #textoContinuar:hover{
+    color: white;
+  }
+  }
+  #continuarBoton:hover{
+    background-color: $colorFondo;
+    color: white;
+    cursor: pointer;
+  }
+}
   #tarjeta__items{
-    border-bottom: 2px solid rgb(175, 169, 169);
+    border-bottom: 1px solid $colorPrincipal;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    .card--carrito{
+    .card__body{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-evenly;
+      width: 100%;
+      .card__imagen{
+        height: 4.5rem;
+        width: 4rem;
+        align-self: center;
+      }
+      .card__title{
+      font-size: 0.7rem;
+      }
+      .card__precio{
+      font-size: 0.7rem;
+      color: $colorPrincipalOscuro;
+      }
+      .eliminarBotonContainer{
+        @include botones;
+        background-color: white;
+        height: 1.5rem;
+        width: 1.5rem;
+      }
+      .eliminarBotonContainer:hover{
+        background-color: $colorFondo;
+        color: white;
+        cursor: pointer;
+      }
+    }
+    }
   }
 }
 /*Layout productos*/
@@ -113,24 +191,31 @@ html{
     //Filtros de busqueda para los productos
     .aside { 
         grid-area: aside; 
-          border: 1px solid black;
           width: 80%;
           height: 40%;
-          
+          background-color: $colorFondo;
+          border: 1px solid $colorPrincipalOscuro;
           .aside__subtitulos{
+            position: relative;
+            left: 25%;
             color: $colorPrincipal;
             font-size: 0.8rem;
             text-align: center;
+            background-color: white;
+            border: 1px solid $colorPrincipalOscuro;
+            border-radius: 10000px;
+            width:50%;
+            padding: 1%;
           }
           #aside__seleccion{
             @include botones;
             position: relative;
-            left: 3.9rem;
+            left: 26%;
           }
           #agregarFiltros{
             @include botones;
             position: relative;
-            left: 3.9rem;
+            left: 23.5%;
             background-color: white;
           }
           .oculto{
@@ -143,7 +228,6 @@ html{
     //Productos  
     #container__productos { 
       grid-area: section; 
-      border: 1px solid black;
       display: flex;
       flex-wrap: wrap;
       flex-direction: row;
@@ -206,6 +290,168 @@ html{
     transform: translateX(-50%) translateY(50%);
     bottom: 0px;
   }
+//Seccion finalizar compra
+//Titulo y logo
+#headerFinalizar{
+  .containerLogo{
+    display: flex;
+    justify-content: center;
+  #logoFinalizar{
+    height: 30%;
+    width: 18%;
+}}
+.containerTituloFinalizar{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  #tituloFinalizar{
+  width: 40%;
+  text-align: center;
+  color: white;
+  background-color: $colorPrincipalOscuro;
+  border: 1px solid white;
+  border-radius: 10000px;
+}}
+}
+//Formulario y productos seleccionados
+#containerFinalGeneral{
+  display: flex;
+  height: 100%;
+  width: 80%;
+  justify-content: space-evenly;
+#containerCarritoFinal{
+  width: 35%;
+  .textoContainerCarritoFinal{
+    background-color: $colorFondo;
+    color: white;
+    width: 45%;
+    text-align: center;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-radius: 1000px;
+    border: 1px solid $colorPrincipalOscuro;
+  }
+  #containerProductosSeleccionados{
+    #productosSeleccionados{
+    .containerSeleccion{
+      height: 100%;
+      width: 90%;
+      border: 1px solid $colorPrincipalOscuro;
+      padding: 1%;
+      font-size: 0.8rem;
+      margin-top: 1%;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      #productoSeleccion{
+      color: $colorPrincipalOscuro;
+      }
+      #precioSeleccion{
+      color: $colorPrincipal;
+      }
+      #imagenSeleccion{
+        height: 30%;
+        width: 30%;
+      }
+    }
+    }
+  }
+}
+#formularioCompra{
+  position: relative;
+#tituloDatos{
+  text-align: center;
+  color: $colorPrincipal;
+}
+#formulario{
+  #containerDatos{
+    text-align: center;
+  .inputsFormulario{
+    border-style: 1px solid $colorPrincipal;
+    width: 80%;
+    padding: 2%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    background-color: $colorFondo;
+    border: 0;
+    border-radius: 10px;
+  }
+}
+#tituloDatosPago{
+  text-align: center;
+  color: $colorPrincipal;
+}
+  #containerTarjeta{
+    background-color: $colorFondo;
+    height: 10rem;
+    border-radius: 10px;
+    #containerTarjetaDatos{
+    .inputsTarjeta{
+    padding: 2%;
+    width: 50%;
+    border:0;
+    background-color: $colorFondo;
+    margin-top: 1rem;
+    }
+    .inputsTarjetaDates{
+      width: 30%;
+      border: 0;
+      margin-left: 0.5rem;
+    }
+    #codigoTarjeta{
+      width: 22%;
+    }
+    #tagEmision{
+    position: absolute;
+    left: 230px;
+    font-size: 0.5rem;
+    color: grey;
+    }
+    #tagVencimiento{
+    position: absolute;
+    left: 415px;
+    font-size: 0.5rem;
+    color: grey;
+    }
+    }
+  }
+  #botonComprar{
+    @include botones;
+    background-color: white;
+    padding: 1%;
+    margin-top: 0.5rem;
+    width: 6rem;
+    font-size: 1rem;
+    transition: 0.5 ease-in;
+    position: relative;
+    left: 80%;
+  }
+  #botonComprar:hover{
+    background-color: $colorFondo;
+    color: white;
+    cursor: pointer;
+  }
+}
+}
+}
+//Estilos boton popup finalizada compra
+#botonVolverTienda{
+  @include botones;
+  background-color: white;
+  transition: 0.5s ease-in;
+  padding: 1%;
+}
+#botonVolverTienda a{
+  text-decoration: none;
+  color: $colorPrincipal;
+}
+#botonVolverTienda:hover{
+  background-color: $colorFondo;
+  color: white;
+}
+#botonVolverTienda a:hover{
+  color: white;
+}
 /*FOOTER*/
 #footer{
     height: 20%;

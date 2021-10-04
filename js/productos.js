@@ -47,11 +47,23 @@ for (const producto of productos){
         console.log(arrayCarrito);
         localStorage.setItem("Carrito del cliente",JSON.stringify(arrayCarrito));
         contador();
-        
+        alertaCarrito();
     }
  }
 }
-
+//Alerta agregaste al carrito
+const alertaCarrito =()=>{
+    Swal.fire({
+        toast: true,
+        position: 'bottom-end',
+        icon: 'success',
+        title: 'Agregaste tu producto al carrito!',
+        background: "#e3ecff",
+        timerProgressBar: true,
+        showConfirmButton: false,
+        timer: 1500
+      })
+}
 //Ocultar y mostar filtros de busqueda
  function filtroDesplegable(nombre,visibilidad){
     let desplegable=document.getElementById(nombre);
@@ -88,7 +100,7 @@ $("#aside__seleccion").on("change", (e)=>{
                 return 1;
             }else if (a.modelo < b.modelo) {
                 return -1;
-            }else              // a must be equal to b
+            }else              // a tiene que ser igual a b
               return 0;
             });        
         renderizarProductos(productosOrdenadosAlfabetico);

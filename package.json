@@ -13,5 +13,8 @@
   "devDependencies": {
     "node-sass": "^6.0.1",
     "nodemon": "^2.0.12"
+  },
+  "dependencies": {
+    "sweetalert2": "^11.1.7"
   }
 }
